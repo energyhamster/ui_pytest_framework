@@ -1,5 +1,3 @@
-import time
-
 from pages.text_box_page import TextBoxPage
 
 
@@ -18,4 +16,3 @@ class TestTextBox:
         assert email == output_email, "The email doesn't match"
         assert current_address == output_current_address, "The current address doesn't match"
         assert permanent_address == output_permanent_address, "The permanent address doesn't match"
-
