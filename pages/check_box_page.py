@@ -19,7 +19,7 @@ class CheckBoxPage(BasePage):
         checkbox_list = self.elements_are_visible(self.CHECKBOX_LIST)
         count = 4
         while count != 0:
-            checkbox = checkbox_list[random.randint(1, len(checkbox_list))]
+            checkbox = checkbox_list[random.randint(0, len(checkbox_list))]
             if count > 0:
                 self.go_to_element(checkbox)
                 checkbox.click()
