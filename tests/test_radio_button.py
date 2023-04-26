@@ -1,5 +1,3 @@
-import time
-
 from pages.radio_button_page import RadioButtonPage
 
 
@@ -18,4 +16,3 @@ class TestRadioButton:
         assert output_yes == 'Yes', "'Yes' have not been selected"
         assert output_impressive == 'Impressive', "'Impressive' have not been selected"
         assert output_no == 'No', "'No' have not been selected"
-
