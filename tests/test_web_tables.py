@@ -1,3 +1,5 @@
+import random
+
 from pages.web_tables_page import WebTablesPage
 
 
@@ -10,3 +12,13 @@ class TestWebTables:
         table_result = web_tables_page.check_new_added_person()
 
         assert new_person in table_result, "The new person doesn't added in web table"
+
+    def test_web_table_search_person(self, driver):
+        web_tables_page = WebTablesPage(driver, 'https://demoqa.com/webtables')
+        web_tables_page.open()
+
+        key_word = web_tables_page.add_new_person()[random.randint(0, 5)]
+        web_tables_page.search_person(key_word)
+        table_result = web_tables_page.check_search_person()
+
+        assert key_word in table_result, "The person was not found in the table"

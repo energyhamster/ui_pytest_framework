@@ -17,6 +17,9 @@ class WebTablesPage(BasePage):
 
     # table
     FULL_PEOPLE_LIST = (By.CSS_SELECTOR, "div[class='rt-tr-group']")
+    SEARCH_INPUT = (By.CSS_SELECTOR, "input[id='searchBox']")
+    DELETE_BUTTON = (By.CSS_SELECTOR, "span[title='Delete']")
+    ROW_PARENT = ".//ancestor::div[@class='rt-tr-group']"
 
     def add_new_person(self, count=1):
         while count != 0:
@@ -36,6 +39,7 @@ class WebTablesPage(BasePage):
             self.element_is_visible(self.SALARY_INPUT).send_keys(salary)
             self.element_is_visible(self.DEPARTMENT_INPUT).send_keys(department)
             self.element_is_visible(self.SUBMIT_BUTTON).click()
+            self.element_is_not_visible(self.SUBMIT_BUTTON)
 
             count -= 1
             return [first_name, last_name, str(age), email, str(salary), department]
@@ -49,3 +53,11 @@ class WebTablesPage(BasePage):
             data.append(item.text.splitlines())
 
         return data
+
+    def search_person(self, key_word):
+        self.element_is_visible(self.SEARCH_INPUT).send_keys(key_word)
+
+    def check_search_person(self):
+        delete_button = self.element_is_present(self.DELETE_BUTTON)
+        row = delete_button.find_element("xpath", self.ROW_PARENT)
+        return row.text.splitlines()
