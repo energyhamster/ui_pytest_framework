@@ -1,6 +1,6 @@
 import random
 
-from pages.web_tables_page import WebTablesPage
+from pages.elements.web_tables_page import WebTablesPage
 
 
 class TestWebTables:

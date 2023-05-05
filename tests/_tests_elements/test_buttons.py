@@ -1,4 +1,4 @@
-from pages.buttons_page import ButtonsPage
+from pages.elements.buttons_page import ButtonsPage
 
 
 class TestButtons:
@@ -15,5 +15,3 @@ class TestButtons:
         assert double == "You have done a double click", "The double click button was not pressed"
         assert right == "You have done a right click", "The right click button was not pressed"
         assert click == "You have done a dynamic click", "The dynamic click button was not pressed"
-
-

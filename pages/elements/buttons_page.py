@@ -21,4 +21,3 @@ class ButtonsPage(BasePage):
         if type_click == "click":
             self.element_is_visible(self.CLICK_ME_BUTTON).click()
             return self.element_is_present(self.CLICK_ME_MESSAGE).text
-

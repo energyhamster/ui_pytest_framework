@@ -1,4 +1,4 @@
-from pages.radio_button_page import RadioButtonPage
+from pages.elements.radio_button_page import RadioButtonPage
 
 
 class TestRadioButton:

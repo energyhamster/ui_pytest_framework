@@ -44,3 +44,5 @@ class BasePage:
         action.context_click(element)
         action.perform()
 
+    def switch_to_tab(self, tab_index):
+        self.driver.switch_to.window(self.driver.window_handles[tab_index])
