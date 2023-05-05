@@ -2,8 +2,10 @@ from pages.check_box_page import CheckBoxPage
 
 
 class TestCheckBox:
+    page_link = 'https://demoqa.com/checkbox'
+
     def test_check_box(self, driver):
-        check_box_page = CheckBoxPage(driver, 'https://demoqa.com/checkbox')
+        check_box_page = CheckBoxPage(driver, self.page_link)
         check_box_page.open()
 
         check_box_page.open_full_list()

@@ -2,8 +2,10 @@ from pages.text_box_page import TextBoxPage
 
 
 class TestTextBox:
+    page_link = 'https://demoqa.com/text-box'
+
     def test_text_box_submit(self, driver):
-        text_box_page = TextBoxPage(driver, 'https://demoqa.com/text-box')
+        text_box_page = TextBoxPage(driver, self.page_link)
         text_box_page.open()
 
         full_name, email, current_address, permanent_address = \

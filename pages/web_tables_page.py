@@ -1,8 +1,6 @@
 import random
-import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 
 from generator.generator import generated_person
 from pages.base_page import BasePage
@@ -116,5 +114,3 @@ class WebTablesPage(BasePage):
     def check_count_rows(self):
         list_rows = self.elements_are_present(self.FULL_PEOPLE_LIST)
         return len(list_rows)
-
-
