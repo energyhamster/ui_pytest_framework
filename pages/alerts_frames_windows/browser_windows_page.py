@@ -17,5 +17,3 @@ class BrowserWindowsPage(BasePage):
         self.element_is_visible(self.NEW_WINDOW_BUTTON).click()
         self.switch_to_tab(1)
         return self.element_is_present(self.NEW_TITLE_TEXT).text
-
-
