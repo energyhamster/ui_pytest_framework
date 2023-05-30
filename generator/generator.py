@@ -19,6 +19,7 @@ def generated_person():
         email=faker_en.email(),
         current_address=faker_en.street_address(),
         permanent_address=faker_en.street_address(),
+        mobile=faker_en.msisdn(),
     )
 
 
@@ -28,3 +29,24 @@ def generated_file():
     file.write(f"Hello World{random.randint(0, 999)}")
     file.close()
     return file.name, path
+
+
+def generated_subject():
+    subject_list = ["Hindi", "English", "Maths", "Physics", "Chemistry", "Biology", "Computer Science", "Commerce",
+                    "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics"]
+    return subject_list[random.randint(0, len(subject_list) - 1)]
+
+def generated_state_and_city():
+    state_list = ["NCR", "Uttar Pradesh", "Haryana", "Rajasthan"]
+    state = state_list[random.randint(0, len(state_list) - 1)]
+
+    city_dict = {
+        "NCR": ("Delhi", "Gurgaon", "Noida"),
+        "Uttar Pradesh": ("Agra", "Lucknow", "Merrut"),
+        "Haryana": ("Karnal", "Panipat"),
+        "Rajasthan": ("Jaipur", "Jaiselmer")
+    }
+    city_tuple = city_dict[state]
+    city = city_tuple[random.randint(0, len(city_tuple) - 1)]
+    return state, city
+
