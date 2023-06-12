@@ -4,7 +4,7 @@ from pages.alerts_frames_windows.frames_page import FramesPage
 class TestFrames:
     page_link = 'https://demoqa.com/frames'
 
-    def test_see_alert(self, driver):
+    def test_frames(self, driver):
         frames_page = FramesPage(driver, self.page_link)
         frames_page.open()
 
