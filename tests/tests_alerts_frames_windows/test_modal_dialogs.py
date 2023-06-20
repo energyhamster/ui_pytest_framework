@@ -1,7 +1,7 @@
 from pages.alerts_frames_windows.modal_dialogs_page import ModalDialogsPage
 
 
-class TestModalDialogsPage:
+class TestModalDialogs:
     page_link = 'https://demoqa.com/modal-dialogs'
 
     def test_modal_dialogs(self, driver):
