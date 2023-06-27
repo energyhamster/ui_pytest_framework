@@ -2,7 +2,7 @@ import random
 
 from faker import Faker
 
-from data.data import Person
+from data.data import Person, Color
 
 faker_en = Faker('en_US')
 Faker.seed()
@@ -36,6 +36,7 @@ def generated_subject():
                     "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics"]
     return subject_list[random.randint(0, len(subject_list) - 1)]
 
+
 def generated_state_and_city():
     state_list = ["NCR", "Uttar Pradesh", "Haryana", "Rajasthan"]
     state = state_list[random.randint(0, len(state_list) - 1)]
@@ -50,3 +51,8 @@ def generated_state_and_city():
     city = city_tuple[random.randint(0, len(city_tuple) - 1)]
     return state, city
 
+
+def generated_color():
+    yield Color(
+        color_name=["Red", "Blue", "Green", "Yellow", "Purple", "Black", "White", "Voilet", "Indigo", "Magenta", "Aqua"]
+    )
