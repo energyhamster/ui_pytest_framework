@@ -1,5 +1,3 @@
-import time
-
 from pages.widgets.autocomplete_page import AutocompletePage
 
 
@@ -31,6 +29,3 @@ class TestAutocomplete:
         color_result = autocomplete_page.check_color_in_single_input()
 
         assert color == color_result, "The added colors are missing in the input"
-
-
-

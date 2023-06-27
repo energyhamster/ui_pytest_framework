@@ -46,6 +46,5 @@ class AutocompletePage(BasePage):
         return color[0]
 
     def check_color_in_single_input(self):
-        color = self.elements_are_visible(self.SINGLE_VALUE)
+        color = self.element_is_visible(self.SINGLE_VALUE)
         return color.text
-
