@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.date_picker_page import DatePickerPage
 
 
 class TestDatePicker:
-    page_link = 'https://demoqa.com/date-picker'
+    page_link = BASE_URL + '/date-picker'
 
     def test_change_date(self, driver):
         date_picker_page = DatePickerPage(driver, self.page_link)

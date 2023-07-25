@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.alerts_frames_windows.alerts_page import AlertsPage
 
 
 class TestAlerts:
-    page_link = 'https://demoqa.com/alerts'
+    page_link = BASE_URL + '/alerts'
 
     def test_see_alert(self, driver):
         alerts_page = AlertsPage(driver, self.page_link)

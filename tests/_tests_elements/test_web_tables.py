@@ -1,10 +1,11 @@
 import random
 
+from config import BASE_URL
 from pages.elements.web_tables_page import WebTablesPage
 
 
 class TestWebTables:
-    page_link = 'https://demoqa.com/webtables'
+    page_link = BASE_URL + '/webtables'
 
     def test_web_table_add_person(self, driver):
         web_tables_page = WebTablesPage(driver, self.page_link)

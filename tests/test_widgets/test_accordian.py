@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.accordian_page import AccordianPage
 
 
 class TestAccordian:
-    page_link = 'https://demoqa.com/accordian'
+    page_link = BASE_URL + '/accordian'
 
     def test_accordian(self, driver):
         accordian_page = AccordianPage(driver, self.page_link)

@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.radio_button_page import RadioButtonPage
 
 
 class TestRadioButton:
-    page_link = 'https://demoqa.com/radio-button'
+    page_link = BASE_URL + '/radio-button'
 
     def test_radio_button(self, driver):
         radio_button_page = RadioButtonPage(driver, self.page_link)

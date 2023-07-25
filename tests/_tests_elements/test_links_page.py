@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.links_page import LinksPage
 
 
 class TestLinks:
-    page_link = 'https://demoqa.com/links'
+    page_link = BASE_URL + '/links'
 
     def test_check_link(self, driver):
         links_page = LinksPage(driver, self.page_link)

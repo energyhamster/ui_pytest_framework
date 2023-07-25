@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.upload_and_download_page import UploadAndDownloadPage
 
 
 class TestUploadAndDownload:
-    page_link = 'https://demoqa.com/upload-download'
+    page_link = BASE_URL + '/upload-download'
 
     def test_upload_file(self, driver):
         upload_and_download_page = UploadAndDownloadPage(driver, self.page_link)

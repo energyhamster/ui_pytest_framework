@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.tool_tips_page import ToolTipsPage
 
 
 class TestTabs:
-    page_link = 'https://demoqa.com/tool-tips'
+    page_link = BASE_URL + '/tool-tips'
 
     def test_slider(self, driver):
         tool_tips_page = ToolTipsPage(driver, self.page_link)

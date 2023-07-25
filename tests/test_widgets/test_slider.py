@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.slider_page import SliderPage
 
 
 class TestSlider:
-    page_link = 'https://demoqa.com/slider'
+    page_link = BASE_URL + '/slider'
 
     def test_slider(self, driver):
         slider_page = SliderPage(driver, self.page_link)

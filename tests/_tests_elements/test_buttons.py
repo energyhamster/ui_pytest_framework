@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.buttons_page import ButtonsPage
 
 
 class TestButtons:
-    page_link = 'https://demoqa.com/buttons'
+    page_link = BASE_URL + '/buttons'
 
     def test_different_click_on_the_buttons(self, driver):
         buttons_page = ButtonsPage(driver, self.page_link)

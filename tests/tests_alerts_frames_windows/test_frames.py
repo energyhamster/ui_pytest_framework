@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.alerts_frames_windows.frames_page import FramesPage
 
 
 class TestFrames:
-    page_link = 'https://demoqa.com/frames'
+    page_link = BASE_URL + '/frames'
 
     def test_frames(self, driver):
         frames_page = FramesPage(driver, self.page_link)

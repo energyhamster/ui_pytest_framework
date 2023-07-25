@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.dynamic_properties_page import DynamicProperties
 
 
 class TestDynamicProperties:
-    page_link = 'https://demoqa.com/dynamic-properties'
+    page_link = BASE_URL + '/dynamic-properties'
 
     def test_enable_button(self, driver):
         dynamic_properties_page = DynamicProperties(driver, self.page_link)

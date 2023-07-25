@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.alerts_frames_windows.nested_frames_page import NestedFramesPage
 
 
 class TestNestedFrames:
-    page_link = 'https://demoqa.com/nestedframes'
+    page_link = BASE_URL + '/nestedframes'
 
     def test_nested_frames(self, driver):
         nested_frames_page = NestedFramesPage(driver, self.page_link)

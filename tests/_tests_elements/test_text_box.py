@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.text_box_page import TextBoxPage
 
 
 class TestTextBox:
-    page_link = 'https://demoqa.com/text-box'
+    page_link = BASE_URL + '/text-box'
 
     def test_text_box_submit(self, driver):
         text_box_page = TextBoxPage(driver, self.page_link)

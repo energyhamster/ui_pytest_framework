@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.tabs_page import TabsPage
 
 
 class TestTabs:
-    page_link = 'https://demoqa.com/tabs'
+    page_link = BASE_URL + '/tabs'
 
     def test_slider(self, driver):
         tabs_page = TabsPage(driver, self.page_link)

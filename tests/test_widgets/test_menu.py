@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.menu_page import MenuPage
 
 
 class TestMenu:
-    page_link = 'https://demoqa.com/menu'
+    page_link = BASE_URL + '/menu'
 
     def test_menu(self, driver):
         menu_page = MenuPage(driver, self.page_link)

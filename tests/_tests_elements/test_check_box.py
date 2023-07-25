@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.elements.check_box_page import CheckBoxPage
 
 
 class TestCheckBox:
-    page_link = 'https://demoqa.com/checkbox'
+    page_link = BASE_URL + '/checkbox'
 
     def test_check_box(self, driver):
         check_box_page = CheckBoxPage(driver, self.page_link)

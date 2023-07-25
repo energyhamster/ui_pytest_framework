@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.alerts_frames_windows.browser_windows_page import BrowserWindowsPage
 
 
 class TestBrowserWindows:
-    page_link = 'https://demoqa.com/browser-windows'
+    page_link = BASE_URL + '/browser-windows'
 
     def test_new_tab(self, driver):
         browser_windows_page = BrowserWindowsPage(driver, self.page_link)

@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.autocomplete_page import AutocompletePage
 
 
 class TestAutocomplete:
-    page_link = 'https://demoqa.com/auto-complete'
+    page_link = BASE_URL + '/auto-complete'
 
     def test_fill_multiple_autocomplete(self, driver):
         autocomplete_page = AutocompletePage(driver, self.page_link)

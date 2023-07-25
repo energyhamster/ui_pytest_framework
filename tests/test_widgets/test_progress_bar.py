@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.widgets.progress_bar_page import ProgressBarPage
 
 
 class TestProgressBar:
-    page_link = 'https://demoqa.com/progress-bar'
+    page_link = BASE_URL + '/progress-bar'
 
     def test_slider(self, driver):
         progress_bar_page = ProgressBarPage(driver, self.page_link)

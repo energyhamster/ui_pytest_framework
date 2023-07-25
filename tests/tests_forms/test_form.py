@@ -1,8 +1,9 @@
+from config import BASE_URL
 from pages.forms.form_page import FormsPage
 
 
 class TestForm:
-    page_link = 'https://demoqa.com/automation-practice-form'
+    page_link = BASE_URL + '/automation-practice-form'
 
     def test_form(self, driver):
         forms_page = FormsPage(driver, self.page_link)
