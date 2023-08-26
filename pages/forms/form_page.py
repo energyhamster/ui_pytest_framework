@@ -27,7 +27,7 @@ class FormsPage(BasePage):
     CITY_INPUT = (By.CSS_SELECTOR, "input[id='react-select-4-input']")
     SUBMIT_BUTTON = (By.CSS_SELECTOR, "button[id='submit']")
 
-    # rorm results
+    # form results
     RESULT_TABLE = (By.XPATH, "//div[@class='table-responsive']//td[2]")
 
     @allure.step("Fill form fields")
