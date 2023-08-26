@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.interactions.selectable_page import SelectablePage
 
@@ -5,6 +7,7 @@ from pages.interactions.selectable_page import SelectablePage
 class TestSelectable:
     page_link = BASE_URL + '/selectable'
 
+    @allure.title("Check elements were selected")
     def test_sortable(self, driver):
         selectable_page = SelectablePage(driver, self.page_link)
         selectable_page.open()

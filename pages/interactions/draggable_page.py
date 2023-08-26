@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -15,6 +16,7 @@ class DraggablePage(BasePage):
     ONLY_X = (By.CSS_SELECTOR, "a[id='restrictedX']")
     ONLY_Y = (By.CSS_SELECTOR, "a[id='restrictedY']")
 
+    @allure.step("Get before and after position")
     def get_before_and_after_position(self, drag_element):
         self.action_drag_and_drop_by_offset(drag_element, random.randint(0, 50), random.randint(0, 50))
         before_position = drag_element.get_attribute('style')
@@ -22,6 +24,7 @@ class DraggablePage(BasePage):
         after_position = drag_element.get_attribute('style')
         return before_position, after_position
 
+    @allure.step("Simple drag box")
     def simple_drag_box(self):
         self.element_is_visible(self.SIMPLE_TAB).click()
         drag_div = self.element_is_visible(self.DRAG_ME)

@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.widgets.tabs_page import TabsPage
 
@@ -5,7 +7,8 @@ from pages.widgets.tabs_page import TabsPage
 class TestTabs:
     page_link = BASE_URL + '/tabs'
 
-    def test_slider(self, driver):
+    @allure.title("Check that tabs was clicked")
+    def test_tabs(self, driver):
         tabs_page = TabsPage(driver, self.page_link)
         tabs_page.open()
 

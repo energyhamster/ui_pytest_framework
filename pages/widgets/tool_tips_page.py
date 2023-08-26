@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -14,6 +15,7 @@ class ToolTipsPage(BasePage):
     SECTION_LINK_HOVER_OVER = (By.CSS_SELECTOR, "a[aria-describedby='sectionToolTip']")
     TOOL_TIP_INNERS = (By.CSS_SELECTOR, "div[class='tooltip-inner']")
 
+    @allure.step("Get text from tool tips")
     def get_text_from_tool_tips(self, hover_elem, wait_elem):
         element = self.element_is_present(hover_elem)
         self.go_to_element(element)
@@ -22,6 +24,7 @@ class ToolTipsPage(BasePage):
         tool_tip_text = tool_tip.text
         return tool_tip_text
 
+    @allure.step("Check tool tips")
     def check_tool_tips(self):
         button_tool_tip_text = self.get_text_from_tool_tips(self.HOVER_ME_BUTTON, self.HOVER_ME_BUTTON_HOVER_OVER)
         field_tool_tip_text = self.get_text_from_tool_tips(self.HOVER_ME_FIELD, self.HOVER_ME_FIELD_HOVER_OVER)

@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -9,6 +10,7 @@ class NestedFramesPage(BasePage):
     CHILD_FRAME = (By.CSS_SELECTOR, "iframe[srcdoc='<p>Child Iframe</p>']")
     CHILD_FRAME_TEXT = (By.CSS_SELECTOR, "p")
 
+    @allure.step("Check nested frame")
     def check_nested_frame(self):
         parent_frame = self.element_is_present(self.PARENT_FRAME)
         self.driver.switch_to.frame(parent_frame)

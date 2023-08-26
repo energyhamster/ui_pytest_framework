@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.alerts_frames_windows.frames_page import FramesPage
 
@@ -5,6 +7,7 @@ from pages.alerts_frames_windows.frames_page import FramesPage
 class TestFrames:
     page_link = BASE_URL + '/frames'
 
+    @allure.title("Check that frame exist")
     def test_frames(self, driver):
         frames_page = FramesPage(driver, self.page_link)
         frames_page.open()

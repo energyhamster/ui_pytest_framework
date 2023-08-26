@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -9,6 +10,7 @@ class RadioButtonPage(BasePage):
     NO_RADIO_BUTTON = (By.CSS_SELECTOR, "label[for='impressiveRadio']")
     OUTPUT_RESULT = (By.CSS_SELECTOR, "span[class='text-success']")
 
+    @allure.step("Click on the radio button")
     def click_on_the_radio_button(self, choise):
         choises = {
             'yes': self.YES_RADIO_BUTTON,
@@ -17,5 +19,6 @@ class RadioButtonPage(BasePage):
         }
         self.element_is_visible(choises[choise]).click()
 
+    @allure.step("Get out result")
     def get_output_result(self):
         return self.element_is_present(self.OUTPUT_RESULT).text

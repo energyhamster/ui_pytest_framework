@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.widgets.progress_bar_page import ProgressBarPage
 
@@ -5,6 +7,7 @@ from pages.widgets.progress_bar_page import ProgressBarPage
 class TestProgressBar:
     page_link = BASE_URL + '/progress-bar'
 
+    @allure.title("Check that progress bar value was changed")
     def test_slider(self, driver):
         progress_bar_page = ProgressBarPage(driver, self.page_link)
         progress_bar_page.open()

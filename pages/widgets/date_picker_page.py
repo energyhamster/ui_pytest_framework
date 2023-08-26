@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
@@ -20,6 +21,7 @@ class DatePickerPage(BasePage):
     DATE_AND_TIME_MONTH_LIST = (By.CSS_SELECTOR, "div[class='react-datepicker__month-option']")
     DATE_AND_TIME_YEAR_LIST = (By.CSS_SELECTOR, "div[class='react-datepicker__year-option']")
 
+    @allure.step("Select date")
     def select_date(self):
         date = next(generated_date())
         input_date = self.elements_are_visible(self.DATE_INPUT)
@@ -31,6 +33,7 @@ class DatePickerPage(BasePage):
         value_date_after = input_date.get_attribute('value')
         return value_date_before, value_date_after
 
+    @allure.step("Select date and time")
     def select_date_and_time(self):
         date = next(generated_date())
         input_date = self.elements_are_visible(self.DATE_AND_TIME_INPUT)
@@ -45,10 +48,12 @@ class DatePickerPage(BasePage):
         value_date_after = input_date.get_attribute('value')
         return value_date_before, value_date_after
 
+    @allure.step("Set date by text")
     def set_date_by_text(self, element, value):
         select = Select(self.element_is_present(element))
         select.select_by_visible_text(value)
 
+    @allure.step("Set date item from list")
     def set_date_item_from_list(self, elements, value):
         item_list = self.elements_are_present(elements)
         for item in item_list:

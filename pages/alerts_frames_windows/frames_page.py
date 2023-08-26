@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -8,6 +9,7 @@ class FramesPage(BasePage):
     SECOND_FRAME = (By.CSS_SELECTOR, "iframe[id='frame2']")
     TITLE_FRAME_TEXT = (By.CSS_SELECTOR, "h1[id='sampleHeading']")
 
+    @allure.step("Check frame")
     def check_frame(self, frame_num):
         if frame_num == "frame1":
             frame = self.element_is_present(self.FIRST_FRAME)

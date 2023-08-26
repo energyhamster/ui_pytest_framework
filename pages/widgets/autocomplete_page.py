@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
@@ -14,6 +15,7 @@ class AutocompletePage(BasePage):
     SINGLE_VALUE = (By.CSS_SELECTOR, "div[class='auto-complete__single-value css-1uccc91-singleValue']")
     SINGLE_INPUT = (By.CSS_SELECTOR, "input[id='autoCompleteSingleInput']")
 
+    @allure.step("Fill input multiple")
     def fill_input_multiple(self):
         colors = random.sample(next(generated_color()).color_name, k=random.randint(2, 5))
         for color in colors:
@@ -22,6 +24,7 @@ class AutocompletePage(BasePage):
             multiple_input.send_keys(Keys.ENTER)
         return colors
 
+    @allure.step("Remove value from multiple input")
     def remove_value_from_multiple_input(self):
         count_value_before = len(self.elements_are_present(self.MULTIPLE_VALUE))
         remove_button_list = self.elements_are_visible(self.MULTIPLE_VALUE_REMOVE)
@@ -31,6 +34,7 @@ class AutocompletePage(BasePage):
         count_value_after = len(self.elements_are_present(self.MULTIPLE_VALUE))
         return count_value_before, count_value_after
 
+    @allure.step("Check color in multiple input")
     def check_color_in_multiple_input(self):
         color_list = self.elements_are_present(self.MULTIPLE_VALUE)
         colors = []
@@ -38,6 +42,7 @@ class AutocompletePage(BasePage):
             colors.append(color.text)
         return colors
 
+    @allure.step("Fill input single")
     def fill_input_single(self):
         color = random.sample(next(generated_color()).color_name, k=1)
         input_single = self.element_is_clickable(self.SINGLE_INPUT)
@@ -45,6 +50,7 @@ class AutocompletePage(BasePage):
         input_single.send_keys(Keys.ENTER)
         return color[0]
 
+    @allure.step("Check color in single input")
     def check_color_in_single_input(self):
         color = self.element_is_visible(self.SINGLE_VALUE)
         return color.text

@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.interactions.sortable_page import SortablePage
 
@@ -5,6 +7,7 @@ from pages.interactions.sortable_page import SortablePage
 class TestSortable:
     page_link = BASE_URL + '/sortable'
 
+    @allure.title("Check that order of the list has changed")
     def test_sortable(self, driver):
         sortable_page = SortablePage(driver, self.page_link)
         sortable_page.open()

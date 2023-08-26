@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.widgets.accordian_page import AccordianPage
 
@@ -5,6 +7,7 @@ from pages.widgets.accordian_page import AccordianPage
 class TestAccordian:
     page_link = BASE_URL + '/accordian'
 
+    @allure.title("Check section titles")
     def test_accordian(self, driver):
         accordian_page = AccordianPage(driver, self.page_link)
         accordian_page.open()

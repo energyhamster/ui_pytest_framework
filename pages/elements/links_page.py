@@ -1,3 +1,4 @@
+import allure
 import requests
 from selenium.webdriver.common.by import By
 
@@ -8,6 +9,7 @@ class LinksPage(BasePage):
     SIMPLE_LINK = (By.CSS_SELECTOR, "a[id='simpleLink']")
     BAD_REQUEST_LINK = (By.CSS_SELECTOR, "a[id='bad-request']")
 
+    @allure.step("Check new tab simple link")
     def check_new_tab_simple_link(self):
         simple_link = self.element_is_visible(self.SIMPLE_LINK)
         link_href = simple_link.get_attribute('href')
@@ -20,6 +22,7 @@ class LinksPage(BasePage):
         else:
             return request.status_code, link_href
 
+    @allure.step("Check broken link")
     def check_broken_link(self, url):
         request = requests.get(url)
         if request.status_code == 200:

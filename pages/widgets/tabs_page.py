@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -13,6 +14,7 @@ class TabsPage(BasePage):
     TABS_MORE = [By.CSS_SELECTOR, "a[id='demo-tab-more']"]
     TABS_MORE_CONTENT = [By.CSS_SELECTOR, "div[id='demo-tabpane-more']"]
 
+    @allure.step("Check tabs")
     def check_tabs(self, name_tab):
         tabs = {
             'what_tab':

@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -11,6 +12,7 @@ class ButtonsPage(BasePage):
     RIGHT_CLICK_MESSAGE = (By.CSS_SELECTOR, "p[id='rightClickMessage']")
     CLICK_ME_MESSAGE = (By.CSS_SELECTOR, "p[id='dynamicClickMessage']")
 
+    @allure.step("Click on button")
     def click_on_button(self, type_click):
         if type_click == "double_click":
             self.action_double_click(self.element_is_visible(self.DOUBLE_CLICK_BUTTON))

@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.forms.form_page import FormsPage
 
@@ -5,6 +7,7 @@ from pages.forms.form_page import FormsPage
 class TestForm:
     page_link = BASE_URL + '/automation-practice-form'
 
+    @allure.title("Check that form was filled")
     def test_form(self, driver):
         forms_page = FormsPage(driver, self.page_link)
         forms_page.open()

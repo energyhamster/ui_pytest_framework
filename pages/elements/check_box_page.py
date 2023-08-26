@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -12,9 +13,11 @@ class CheckBoxPage(BasePage):
     CHECKBOX_TITLE_TEXT = ".//ancestor::span[@class='rct-text']"
     OUTPUT_RESULT_LIST = (By.CSS_SELECTOR, "span[class='text-success']")
 
+    @allure.step("Open full list of checkboxes")
     def open_full_list(self):
         self.element_is_visible(self.EXPAND_ALL_BUTTON).click()
 
+    @allure.step("Click on random checkbox")
     def click_random_checkboxes(self):
         checkbox_list = self.elements_are_visible(self.CHECKBOX_LIST)
         count = 4
@@ -27,6 +30,7 @@ class CheckBoxPage(BasePage):
             else:
                 break
 
+    @allure.step("Get checked checkbox")
     def get_checked_checkbox(self):
         checked_checkboxes_list = self.elements_are_present(self.CHECKED_CHECKBOXES)
         data = []
@@ -35,6 +39,7 @@ class CheckBoxPage(BasePage):
             data.append(checkbox_title_text)
         return str(data).replace(' ', '').replace('doc', '').replace('.', '').lower()
 
+    @allure.step("Get output result")
     def get_output_result(self):
         output_result_list = self.elements_are_present(self.OUTPUT_RESULT_LIST)
         data = []

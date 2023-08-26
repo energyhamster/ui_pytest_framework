@@ -1,3 +1,4 @@
+import allure
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 
@@ -12,6 +13,7 @@ class AccordianPage(BasePage):
     THIRD_ACCORDIAN_TITLE = (By.CSS_SELECTOR, "div[id='section3Heading']")
     THIRD_ACCORDIAN_BODY = (By.CSS_SELECTOR, "div[id='section3Content'] p")
 
+    @allure.step("Check accordian")
     def check_accordian(self, accordian_num):
         accordian = {
             'first_section':

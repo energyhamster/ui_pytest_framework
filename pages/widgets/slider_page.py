@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -9,6 +10,7 @@ class SliderPage(BasePage):
     SLIDER_INPUT = (By.CSS_SELECTOR, "input[class='range-slider range-slider--primary']")
     SLIDER_VALUE = (By.CSS_SELECTOR, "input[id='sliderValue']")
 
+    @allure.step("Change slider value")
     def change_slider_value(self):
         value_before = self.element_is_visible(self.SLIDER_VALUE).get_attribute('value')
         slider_input = self.element_is_visible(self.SLIDER_INPUT)

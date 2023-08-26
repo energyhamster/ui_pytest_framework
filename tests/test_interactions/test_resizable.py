@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.interactions.resizable_page import ResizablePage
 
@@ -5,6 +7,7 @@ from pages.interactions.resizable_page import ResizablePage
 class TestResizable:
     page_link = BASE_URL + '/resizable'
 
+    @allure.title("Check size of the box")
     def test_resizable(self, driver):
         resizable_page = ResizablePage(driver, self.page_link)
         resizable_page.open()

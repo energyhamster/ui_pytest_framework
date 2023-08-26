@@ -1,6 +1,7 @@
 import os
 import random
 
+import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
@@ -29,6 +30,7 @@ class FormsPage(BasePage):
     # rorm results
     RESULT_TABLE = (By.XPATH, "//div[@class='table-responsive']//td[2]")
 
+    @allure.step("Fill form fields")
     def fill_form_fields(self):
         person = next(generated_person())
         file_name, path = generated_file()
@@ -55,6 +57,7 @@ class FormsPage(BasePage):
         self.element_is_visible(self.SUBMIT_BUTTON).click()
         return person
 
+    @allure.step("Form result calculation")
     def form_result(self):
         result_list = self.elements_are_present(self.RESULT_TABLE)
         data = []

@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from generator.generator import generated_person
@@ -41,6 +42,7 @@ class WebTablesPage(BasePage):
         5: person_info.department,
     }
 
+    @allure.step("Add new person in the table")
     def add_new_person(self, count=1):
         while count != 0:
             self.element_is_visible(self.ADD_BUTTON).click()
@@ -57,6 +59,7 @@ class WebTablesPage(BasePage):
             return [self.person_info.first_name, self.person_info.last_name, str(self.person_info.age),
                     self.person_info.email, str(self.person_info.salary), self.person_info.department]
 
+    @allure.step("Check new added person")
     def check_new_added_person(self):
         people_list = self.elements_are_present(self.FULL_PEOPLE_LIST)
 
@@ -67,14 +70,17 @@ class WebTablesPage(BasePage):
 
         return data
 
+    @allure.step("Search person")
     def search_person(self, key_word):
         self.element_is_visible(self.SEARCH_INPUT).send_keys(key_word)
 
+    @allure.step("Check search person")
     def check_search_person(self):
         delete_button = self.element_is_present(self.DELETE_BUTTON)
         row = delete_button.find_element("xpath", self.ROW_PARENT)
         return row.text.splitlines()
 
+    @allure.step("Update random field of person info")
     def update_random_field_of_person_info(self):
         self.element_is_present(self.EDIT_BUTTON).click()
         inputs_list = self.elements_are_present(self.USER_FORM_INPUT_LIST)
@@ -93,12 +99,15 @@ class WebTablesPage(BasePage):
 
         return self.person_info_dict[index]
 
+    @allure.step("Delete person")
     def delete_person(self):
         self.element_is_visible(self.DELETE_BUTTON).click()
 
+    @allure.step("Check delete")
     def check_deleted(self):
         return self.element_is_present(self.NO_ROWS_FOUND_TEXT).text
 
+    @allure.step("Select up to some row")
     def select_up_to_some_rows(self):
         count_rows = [5, 10, 20, 25, 50, 100]
         data = []
@@ -111,6 +120,7 @@ class WebTablesPage(BasePage):
             data.append(self.check_count_rows())
         return data
 
+    @allure.step("Check count row")
     def check_count_rows(self):
         list_rows = self.elements_are_present(self.FULL_PEOPLE_LIST)
         return len(list_rows)

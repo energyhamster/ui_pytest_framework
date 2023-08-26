@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -8,11 +9,13 @@ class BrowserWindowsPage(BasePage):
     NEW_WINDOW_BUTTON = (By.CSS_SELECTOR, "button[id='windowButton']")
     NEW_TITLE_TEXT = (By.CSS_SELECTOR, "h1[id='sampleHeading']")
 
+    @allure.step("Check open new tab")
     def check_opened_new_tab(self):
         self.element_is_visible(self.NEW_TAB_BUTTON).click()
         self.switch_to_tab(1)
         return self.element_is_present(self.NEW_TITLE_TEXT).text
 
+    @allure.step("Check opened new window")
     def check_opened_new_window(self):
         self.element_is_visible(self.NEW_WINDOW_BUTTON).click()
         self.switch_to_tab(1)

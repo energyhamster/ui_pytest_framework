@@ -1,3 +1,5 @@
+import allure
+
 from config import BASE_URL
 from pages.widgets.tool_tips_page import ToolTipsPage
 
@@ -5,7 +7,8 @@ from pages.widgets.tool_tips_page import ToolTipsPage
 class TestTabs:
     page_link = BASE_URL + '/tool-tips'
 
-    def test_slider(self, driver):
+    @allure.title("Check that hover over was presented")
+    def test_tool_tips(self, driver):
         tool_tips_page = ToolTipsPage(driver, self.page_link)
         tool_tips_page.open()
 

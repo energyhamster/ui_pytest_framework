@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from generator.generator import generated_person
@@ -18,6 +19,7 @@ class TextBoxPage(BasePage):
     CREATED_CURRENT_ADDRESS = (By.CSS_SELECTOR, "#output #currentAddress")
     CREATED_PERMANENT_ADDRESS = (By.CSS_SELECTOR, "#output #permanentAddress")
 
+    @allure.step("Fill all fields and submit")
     def fill_all_fields_and_submit(self):
         person_info = next(generated_person())
         full_name = person_info.full_name
@@ -32,6 +34,7 @@ class TextBoxPage(BasePage):
         self.element_is_visible(self.SUBMIT_BUTTON).click()
         return full_name, email, current_address, permanent_address
 
+    @allure.step("Checked filled form")
     def check_filled_form(self):
         full_name = self.element_is_present(self.CREATED_FULL_NAME).text.split(':')[1]
         email = self.element_is_present(self.CREATED_EMAIL).text.split(':')[1]

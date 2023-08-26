@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -14,18 +15,22 @@ class SelectablePage(BasePage):
     GRID_ITEM = (By.CSS_SELECTOR, "div[id='gridContainer'] li[class='list-group-item list-group-item-action']")
     GRID_ITEM_ACTIVE = (By.CSS_SELECTOR, "li[class='list-group-item active list-group-item-action']")
 
+    @allure.step("Click selectable item")
     def click_selectable_item(self, elements):
         item_list = self.elements_are_visible(elements)
         random.sample(item_list, k=1)[0].click()
 
+    @allure.step("Select item")
     def select_item(self, tab_locator, item_locator, active_item_locator):
         self.element_is_visible(tab_locator).click()
         self.click_selectable_item(item_locator)
         active_element = self.element_is_visible(active_item_locator)
         return active_element.text
 
+    @allure.step("Select list item")
     def select_list_item(self):
         return self.select_item(self.TAB_LIST, self.LIST_ITEM, self.LIST_ITEM_ACTIVE)
 
+    @allure.step("Select grid item")
     def select_grid_item(self):
         return self.select_item(self.TAB_GRID, self.GRID_ITEM, self.GRID_ITEM_ACTIVE)
